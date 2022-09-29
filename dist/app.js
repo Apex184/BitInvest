@@ -9,7 +9,17 @@ const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const db_config_1 = __importDefault(require("./config/db.config"));
 dotenv_1.default.config();
+db_config_1.default.sync()
+    // db.sync({ force: true })
+    .then(() => {
+    console.log('Successfully connected to the Database');
+})
+    .catch((Error) => {
+    console.log('Unable to connect to the database');
+    // throw new Error('Unable to connect to the database');
+});
 const index_1 = __importDefault(require("./routes/index"));
 const users_1 = __importDefault(require("./routes/users"));
 const app = (0, express_1.default)();

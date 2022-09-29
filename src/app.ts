@@ -4,8 +4,18 @@ import  path from 'path';
 import  cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
-
+import db from './config/db.config';
 dotenv.config();
+
+db.sync()
+  // db.sync({ force: true })
+  .then(() => {
+    console.log('Successfully connected to the Database');
+  })
+  .catch((Error) => {
+    console.log('Unable to connect to the database');
+    // throw new Error('Unable to connect to the database');
+  });
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
