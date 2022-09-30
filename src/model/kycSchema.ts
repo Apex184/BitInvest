@@ -38,4 +38,7 @@ KycInstance.init(
   },
 );
 
+UserInstance.hasOne(KycInstance, {foreignKey: 'id'});
+KycInstance.belongsTo(UserInstance, {foreignKey: 'id'});
+
 
