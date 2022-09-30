@@ -1,5 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '../config/db.config';
+import { KycInstance } from './kycSchema';
 
 
 export interface UserAttributes {
@@ -106,13 +107,14 @@ UserInstance.init(
   },
 );
 
-// Linking user to all accounts created by user
-// UserInstance.hasMany(BankAccountInstance, {
-//   foreignKey: 'id',
-//   as: 'BankAccount',
-// });
+//Linking user to all accounts created by user
+UserInstance.hasMany(KycInstance, {
+  foreignKey: 'id',
+  as: 'Kyc',
+});
 
-// BankAccountInstance.belongsTo(UserInstance, {
-//   foreignKey: 'userId',
-//   as: 'User',
-// });
+KycInstance.belongsTo(UserInstance, {
+  foreignKey: 'userId',
+  as: 'User',
+});
+//
