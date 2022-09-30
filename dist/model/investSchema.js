@@ -16,19 +16,23 @@ InvestInstance.init({
         primaryKey: true,
         allowNull: false,
     },
-    govtId: {
-        type: sequelize_1.DataTypes.STRING,
+    amount: {
+        type: sequelize_1.DataTypes.NUMBER,
         allowNull: false,
-        unique: true,
     },
-    state: {
+    plans: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
     },
     paymentStatus: {
         type: sequelize_1.DataTypes.BOOLEAN,
         defaultValue: false,
     },
+    roi: {
+        type: sequelize_1.DataTypes.NUMBER
+    },
+    dailyRoi: {
+        type: sequelize_1.DataTypes.NUMBER
+    }
 }, {
     sequelize: db_config_1.default,
     tableName: 'Investment',

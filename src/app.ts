@@ -3,9 +3,8 @@ import  express, {Response, Request, NextFunction} from  'express';
 import  path from 'path';
 import  cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import dotenv from 'dotenv';
 import db from './config/db.config';
-dotenv.config();
+
 
 db.sync()
   // db.sync({ force: true })
@@ -25,7 +24,7 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-console.log("Heloo")
+
 
 
 app.use(logger('dev'));
