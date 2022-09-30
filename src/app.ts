@@ -6,6 +6,7 @@ import logger from 'morgan';
 import db from './config/db.config';
 
 
+
 db.sync()
   // db.sync({ force: true })
   .then(() => {
