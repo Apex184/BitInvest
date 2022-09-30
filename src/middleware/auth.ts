@@ -21,7 +21,7 @@ export async function auth(req: Request | any, res: Response, next: NextFunction
         if(!verified) {
             return res.status(httpStatus.UNAUTHORIZED).json({
                 status: httpStatus.UNAUTHORIZED,
-                message: 'Invalid token',
+                message: 'Kindly verify your account',
             });
         }
         
@@ -34,6 +34,10 @@ export async function auth(req: Request | any, res: Response, next: NextFunction
     }
     catch(err){
         console.log(err);
+        return res.status(httpStatus.FORBIDDEN).json({
+            status: httpStatus.FORBIDDEN,
+            message: 'User is not authorized',
+        });
     }
     
 }
