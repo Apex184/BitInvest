@@ -9,8 +9,9 @@ export const userSchema = Joi.object({
     country: Joi.string().required().min(3).max(50),
     gender: Joi.string().required(),
     dob: Joi.string().required(),
-    password: Joi.string().required().min(8).max(30).pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")),
-    walletAddress: Joi.string().required().min(42).max(42).pattern(new RegExp("^(0x)[0-9a-fA-F]{40}$")),
+    password: Joi.string().required().min(5).max(30),
+    confirmPassword: Joi.ref('password'),
+    walletAddress: Joi.string().required().min(34).max(34).pattern(new RegExp("^[a-zA-Z0-9]*$")),
     avatar: Joi.string().optional().allow(""),
     isVerified: Joi.boolean().optional().default(false)
     
@@ -18,8 +19,9 @@ export const userSchema = Joi.object({
 
 export const loginSchema = Joi.object().keys({
     email: Joi.string().trim().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] }}),
-    password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
-    userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
+    password: Joi.string().required(),
+    // userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
+    // phoneNumber: Joi.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$"))
 });
 
 export const forgotPasswordSchema = Joi.object().keys({
@@ -49,7 +51,7 @@ export const updateUserSchema = Joi.object().keys({
   phoneNumber: Joi.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$")),
   userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
   dob: Joi.string().required(),
-  walletAddress: Joi.string().required().min(42).max(42).pattern(new RegExp("^(0x)[0-9a-fA-F]{40}$")),
+  walletAddress: Joi.string().required().min(34).max(34).pattern(new RegExp("^[a-zA-Z0-9]*$")),
   avatar: Joi.string(),
   country: Joi.string().required().min(3).max(50)
 });

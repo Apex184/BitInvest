@@ -4,7 +4,7 @@ import  {UserInstance}  from '../model/userSchema';
 // import  {InvestInstance}  from '../model/investSchema';
 
 
-export interface UserAttributes {
+export interface KycAttributes {
   id: string;
   govtId: string;
   state: string;
@@ -12,7 +12,7 @@ export interface UserAttributes {
   isVerified?: boolean;
 }
 
-export class KycInstance extends Model<UserAttributes> {}
+export class KycInstance extends Model<KycAttributes> {}
 
 KycInstance.init(
   {
@@ -38,7 +38,7 @@ KycInstance.init(
   },
 );
 
-UserInstance.hasOne(KycInstance, {foreignKey: 'id'});
-KycInstance.belongsTo(UserInstance, {foreignKey: 'id'});
+// UserInstance.hasMany(KycInstance, {foreignKey: 'id'});
+// KycInstance.belongsTo(UserInstance, {foreignKey: 'id'});
 
 

@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.emailVerificationView = void 0;
-function emailVerificationView(token) {
+exports.registermailverification = void 0;
+function registermailverification(token) {
     const link = `http://localhost:3000/api-v1/users/verify/${token}`;
     // const link = `http://localhost:3001/login/${token}`;
     let temp = `
        <div style="max-width: 700px;text-align: center; text-transform: uppercase;
        margin:auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
-       <h2 style="color: teal;">Welcome to Airtym2cAsh</h2>
+       <h2 style="color: teal;">Welcome to BitInvest</h2>
        <p>Please Follow the link by clicking on the button to verify your email
         </p>
         <div style="text-align:center ;">
@@ -20,5 +20,5 @@ function emailVerificationView(token) {
         `;
     return temp;
 }
-exports.emailVerificationView = emailVerificationView;
+exports.registermailverification = registermailverification;
 //# sourceMappingURL=registerMailer.js.map

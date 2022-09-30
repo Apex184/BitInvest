@@ -14,15 +14,17 @@ exports.userSchema = joi_1.default.object({
     country: joi_1.default.string().required().min(3).max(50),
     gender: joi_1.default.string().required(),
     dob: joi_1.default.string().required(),
-    password: joi_1.default.string().required().min(8).max(30).pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")),
-    walletAddress: joi_1.default.string().required().min(42).max(42).pattern(new RegExp("^(0x)[0-9a-fA-F]{40}$")),
+    password: joi_1.default.string().required().min(5).max(30),
+    confirmPassword: joi_1.default.ref('password'),
+    walletAddress: joi_1.default.string().required().min(34).max(34).pattern(new RegExp("^[a-zA-Z0-9]*$")),
     avatar: joi_1.default.string().optional().allow(""),
     isVerified: joi_1.default.boolean().optional().default(false)
 }).with('password', 'confirmPassword');
 exports.loginSchema = joi_1.default.object().keys({
     email: joi_1.default.string().trim().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
-    password: joi_1.default.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
-    userName: joi_1.default.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
+    password: joi_1.default.string().required(),
+    // userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
+    // phoneNumber: Joi.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$"))
 });
 exports.forgotPasswordSchema = joi_1.default.object().keys({
     email: joi_1.default.string().trim().lowercase().required(),
@@ -49,7 +51,7 @@ exports.updateUserSchema = joi_1.default.object().keys({
     phoneNumber: joi_1.default.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$")),
     userName: joi_1.default.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
     dob: joi_1.default.string().required(),
-    walletAddress: joi_1.default.string().required().min(42).max(42).pattern(new RegExp("^(0x)[0-9a-fA-F]{40}$")),
+    walletAddress: joi_1.default.string().required().min(34).max(34).pattern(new RegExp("^[a-zA-Z0-9]*$")),
     avatar: joi_1.default.string(),
     country: joi_1.default.string().required().min(3).max(50)
 });
