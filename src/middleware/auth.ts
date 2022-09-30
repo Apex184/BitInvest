@@ -12,7 +12,7 @@ export async function auth(req: Request | any, res: Response, next: NextFunction
         if(!token) {
             return res.status(httpStatus.UNAUTHORIZED).json({
                 status: httpStatus.UNAUTHORIZED,
-                message: 'Token is required',
+                message: 'Kindly sign In as a user',
             });
         }
         

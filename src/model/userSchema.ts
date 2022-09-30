@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, DATEONLY, Model } from 'sequelize';
 import db from '../config/db.config';
 import { KycInstance } from './kycSchema';
 
@@ -8,6 +8,8 @@ export interface UserAttributes {
   fullName: string;
   userName: string;
   email: string;
+  gender: string;
+  dob: string;
   phoneNumber: string;
   country: string;
   password: string;
@@ -63,6 +65,14 @@ UserInstance.init(
           msg: 'Please provide a valid email',
         },
       },
+    },
+    gender:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    dob:{
+      type: DataTypes.DATEONLY,
+      
     },
     phoneNumber: {
       type: DataTypes.STRING,
