@@ -19,7 +19,7 @@ export const Sign_up = async (req: Request, res: Response, next: NextFunction) =
             password: password
         
         }
-        const record = await UserInstance.create(user);
+        // const record = await UserInstance.create(user);
         // const token = jwt.sign({ userId: user.id }, );
         // res.send({ token });
     } catch (err) {

@@ -8,9 +8,7 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
-const dotenv_1 = __importDefault(require("dotenv"));
 const db_config_1 = __importDefault(require("./config/db.config"));
-dotenv_1.default.config();
 db_config_1.default.sync()
     // db.sync({ force: true })
     .then(() => {
@@ -26,7 +24,6 @@ const app = (0, express_1.default)();
 // view engine setup
 app.set('views', path_1.default.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-console.log("Heloo");
 app.use((0, morgan_1.default)('dev'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));

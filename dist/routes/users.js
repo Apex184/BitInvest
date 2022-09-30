@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
+    res.send('I am a user');
 });
 exports.default = router;
 //# sourceMappingURL=users.js.map

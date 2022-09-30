@@ -54,6 +54,13 @@ UserInstance.init({
             },
         },
     },
+    gender: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false
+    },
+    dob: {
+        type: sequelize_1.DataTypes.DATEONLY,
+    },
     phoneNumber: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,

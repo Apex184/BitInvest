@@ -8,6 +8,7 @@
     "dev:build-watch": "yarn tsc -w"
   },
   "dependencies": {
+    "@types/nodemailer": "^6.4.6",
     "@types/typescript": "^2.0.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",

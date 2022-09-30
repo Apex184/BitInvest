@@ -8,8 +8,6 @@ export interface UserAttributes {
   id: string;
   govtId: string;
   state: string;
-
-  
   avatar?: string;
   isVerified?: boolean;
 }
@@ -39,5 +37,8 @@ KycInstance.init(
     tableName: 'Kyc',
   },
 );
+
+UserInstance.hasOne(KycInstance, {foreignKey: 'id'});
+KycInstance.belongsTo(UserInstance, {foreignKey: 'id'});
 
 
