@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserInstance = void 0;
 const sequelize_1 = require("sequelize");
 const db_config_1 = __importDefault(require("../config/db.config"));
+const kycSchema_1 = require("./kycSchema");
 class UserInstance extends sequelize_1.Model {
 }
 exports.UserInstance = UserInstance;
@@ -92,13 +93,14 @@ UserInstance.init({
     sequelize: db_config_1.default,
     tableName: 'User',
 });
-// Linking user to all accounts created by user
-// UserInstance.hasMany(BankAccountInstance, {
-//   foreignKey: 'id',
-//   as: 'BankAccount',
-// });
-// BankAccountInstance.belongsTo(UserInstance, {
-//   foreignKey: 'userId',
-//   as: 'User',
-// });
+//Linking user to all accounts created by user
+UserInstance.hasMany(kycSchema_1.KycInstance, {
+    foreignKey: 'id',
+    as: 'Kyc',
+});
+kycSchema_1.KycInstance.belongsTo(UserInstance, {
+    foreignKey: 'userId',
+    as: 'User',
+});
+//
 //# sourceMappingURL=userSchema.js.map

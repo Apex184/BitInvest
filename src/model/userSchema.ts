@@ -1,5 +1,6 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, DATEONLY, Model } from 'sequelize';
 import db from '../config/db.config';
+import { KycInstance } from './kycSchema';
 
 
 export interface UserAttributes {
@@ -7,6 +8,8 @@ export interface UserAttributes {
   fullName: string;
   userName: string;
   email: string;
+  gender: string;
+  dob: string;
   phoneNumber: string;
   country: string;
   password: string;
@@ -63,6 +66,14 @@ UserInstance.init(
         },
       },
     },
+    gender:{
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    dob:{
+      type: DataTypes.DATEONLY,
+      
+    },
     phoneNumber: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -106,13 +117,14 @@ UserInstance.init(
   },
 );
 
-// Linking user to all accounts created by user
-// UserInstance.hasMany(BankAccountInstance, {
-//   foreignKey: 'id',
-//   as: 'BankAccount',
-// });
+//Linking user to all accounts created by user
+UserInstance.hasMany(KycInstance, {
+  foreignKey: 'id',
+  as: 'Kyc',
+});
 
-// BankAccountInstance.belongsTo(UserInstance, {
-//   foreignKey: 'userId',
-//   as: 'User',
-// });
+KycInstance.belongsTo(UserInstance, {
+  foreignKey: 'userId',
+  as: 'User',
+});
+//
