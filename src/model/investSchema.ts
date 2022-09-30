@@ -7,9 +7,11 @@ import  {UserInstance}  from '../model/userSchema';
 
 export interface UserAttributes {
   userId: string;
-  govtId: string;
-  state: string;
   paymentStatus: string;
+  amount: number;
+  plans: string;
+  roi: number;
+  dailyRoi: number;
 }
 
 export class InvestInstance extends Model<UserAttributes> {}
@@ -21,20 +23,24 @@ InvestInstance.init(
       primaryKey: true,
       allowNull: false,
     },
-    govtId: {
-        type: DataTypes.STRING,
+    amount: {
+        type: DataTypes.NUMBER,
         allowNull: false,
-        unique: true,
+        
     },
-    state: {
+    plans: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     paymentStatus: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-       
     },
+    roi:{
+        type: DataTypes.NUMBER
+    },
+    dailyRoi:{
+        type: DataTypes.NUMBER
+    }
    
   },
   {

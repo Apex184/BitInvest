@@ -8,8 +8,6 @@ export interface UserAttributes {
   id: string;
   govtId: string;
   state: string;
-
-  
   avatar?: string;
   isVerified?: boolean;
 }
