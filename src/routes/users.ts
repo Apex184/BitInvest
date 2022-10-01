@@ -8,11 +8,11 @@ const router = express.Router();
 router.get('/getuser');
 router.post('/', validateSignupUser, RegisterUser);
 router.post('/login', validateLoginUser, LoginUser);
-router.patch('/verify/:token', );
+router.patch('/verify/:token', auth, );
 router.post('/forgotpassword', );
 router.post('/resetpassword/:token', );
 router.post('/updatepassword', );
-router.post('/updateprofile',auth, validateUpdateUser, UpdateUser);
+router.patch('/updateprofile',auth, validateUpdateUser, UpdateUser);
 router.post('/deleteaccount', );
 router.get('/logout', );
 

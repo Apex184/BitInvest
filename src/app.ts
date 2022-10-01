@@ -7,8 +7,8 @@ import db from './config/db.config';
 
 
 
-db.sync()
-  // db.sync({ force: true })
+// db.sync()
+  db.sync({ force: true })
   .then(() => {
     console.log('Successfully connected to the Database');
   })

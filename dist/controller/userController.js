@@ -102,7 +102,7 @@ async function UpdateUser(req, res) {
             dob,
             avatar,
         });
-        //   const html = updatenotification({updateUser});
+        //   const html = updatenotification("Your profile has been updated");
         //   await mailer.sendEmail(fromUser, req.body.email, 'Check your mail to see your updated record',html);
         (0, helperMethods_1.successResponse)(res, 'User updated successfully', http_status_1.default.CREATED, updateProfile);
     }

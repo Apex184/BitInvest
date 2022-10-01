@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateUpdateUser = exports.validateLoginUser = exports.validateSignupUser = void 0;
+exports.validateChangePassword = exports.validateForgotPassword = exports.validateUpdateUser = exports.validateLoginUser = exports.validateSignupUser = void 0;
 const utils_1 = require("../utils/utils");
 const validateSignupUser = (req, res, next) => {
     const validateUser = utils_1.userSchema.validate(req.body, utils_1.options);
@@ -34,4 +34,22 @@ const validateUpdateUser = (req, res, next) => {
     next();
 };
 exports.validateUpdateUser = validateUpdateUser;
+const validateForgotPassword = (req, res, next) => {
+    const validateResult = utils_1.forgotPasswordSchema.validate(req.body, utils_1.options);
+    if (validateResult.error) {
+        return res.status(400).json({ message: validateResult.error.details[0].message });
+    }
+    next();
+};
+exports.validateForgotPassword = validateForgotPassword;
+const validateChangePassword = (req, res, next) => {
+    const validateResult = utils_1.changePasswordSchema.validate(req.body, utils_1.options);
+    if (validateResult.error) {
+        return res.status(400).json({
+            message: validateResult.error.details[0].message,
+        });
+    }
+    next();
+};
+exports.validateChangePassword = validateChangePassword;
 //# sourceMappingURL=validateSignup.js.map

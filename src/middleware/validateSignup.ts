@@ -39,3 +39,21 @@ export const validateLoginUser = (req: Request, res: Response, next: NextFunctio
     }
     next();
   };
+  
+  export const validateForgotPassword = (req: Request, res: Response, next: NextFunction) => {
+    const validateResult = forgotPasswordSchema.validate(req.body, options);
+    if (validateResult.error) {
+      return res.status(400).json({ message: validateResult.error.details[0].message });
+    }
+    next();
+  };
+  
+  export const validateChangePassword = (req: Request, res: Response, next: NextFunction) => {
+    const validateResult = changePasswordSchema.validate(req.body, options);
+    if (validateResult.error) {
+      return res.status(400).json({
+        message: validateResult.error.details[0].message,
+      });
+    }
+    next();
+  };

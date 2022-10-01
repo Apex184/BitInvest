@@ -18,7 +18,7 @@ const jwtsecret = process.env.JWT_SECRET as string;
  interface jwtPayload {
     email: string;
     id: string;
-    phoneNumber: Number;
+    
   }
   
   export const RegisterUser = async (req: Request, res: Response): Promise<unknown> => {
@@ -90,6 +90,7 @@ const jwtsecret = process.env.JWT_SECRET as string;
     } catch (error) {
       console.log(error)
       return serverError(res);
+      
     }
   };
   
@@ -114,7 +115,7 @@ const jwtsecret = process.env.JWT_SECRET as string;
         avatar,
       });
     
-    //   const html = updatenotification({updateUser});
+    //   const html = updatenotification("Your profile has been updated");
     //   await mailer.sendEmail(fromUser, req.body.email, 'Check your mail to see your updated record',html);
       successResponse(res, 'User updated successfully', httpStatus.CREATED, updateProfile);
     } catch (error) {

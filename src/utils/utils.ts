@@ -20,8 +20,8 @@ export const userSchema = Joi.object({
 export const loginSchema = Joi.object().keys({
     email: Joi.string().trim().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] }}),
     password: Joi.string().required(),
-    // userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
-    // phoneNumber: Joi.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$"))
+    userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
+    phoneNumber: Joi.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$"))
 });
 
 export const forgotPasswordSchema = Joi.object().keys({

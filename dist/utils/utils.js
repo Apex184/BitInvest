@@ -23,8 +23,8 @@ exports.userSchema = joi_1.default.object({
 exports.loginSchema = joi_1.default.object().keys({
     email: joi_1.default.string().trim().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
     password: joi_1.default.string().required(),
-    // userName: Joi.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
-    // phoneNumber: Joi.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$"))
+    userName: joi_1.default.string().required().min(5).max(30).pattern(new RegExp("^[a-zA-Z0-9]*$")),
+    phoneNumber: joi_1.default.string().required().min(11).max(11).pattern(new RegExp("^[0-9]*$"))
 });
 exports.forgotPasswordSchema = joi_1.default.object().keys({
     email: joi_1.default.string().trim().lowercase().required(),
