@@ -42,7 +42,7 @@ UserInstance.init(
     },
     userName: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
       unique: true,
       validate: {
         notNull: {
@@ -71,8 +71,8 @@ UserInstance.init(
       allowNull: false
     },
     dob:{
-      type: DataTypes.DATEONLY,
-      
+      type: DataTypes.STRING,
+     
     },
     phoneNumber: {
       type: DataTypes.STRING,
@@ -107,7 +107,7 @@ UserInstance.init(
     },
     isVerified: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      allowNull: true,
       defaultValue: false,
     }
   },

@@ -9,8 +9,8 @@ const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const db_config_1 = __importDefault(require("./config/db.config"));
-db_config_1.default.sync()
-    // db.sync({ force: true })
+// db.sync()
+db_config_1.default.sync({ force: true })
     .then(() => {
     console.log('Successfully connected to the Database');
 })

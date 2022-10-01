@@ -30,7 +30,7 @@ UserInstance.init({
     },
     userName: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         unique: true,
         validate: {
             notNull: {
@@ -59,7 +59,7 @@ UserInstance.init({
         allowNull: false
     },
     dob: {
-        type: sequelize_1.DataTypes.DATEONLY,
+        type: sequelize_1.DataTypes.STRING,
     },
     phoneNumber: {
         type: sequelize_1.DataTypes.STRING,
@@ -93,7 +93,7 @@ UserInstance.init({
     },
     isVerified: {
         type: sequelize_1.DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
         defaultValue: false,
     }
 }, {

@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.KycInstance = void 0;
 const sequelize_1 = require("sequelize");
 const db_config_1 = __importDefault(require("../config/db.config"));
-const userSchema_1 = require("../model/userSchema");
 class KycInstance extends sequelize_1.Model {
 }
 exports.KycInstance = KycInstance;
@@ -29,6 +28,6 @@ KycInstance.init({
     sequelize: db_config_1.default,
     tableName: 'Kyc',
 });
-userSchema_1.UserInstance.hasOne(KycInstance, { foreignKey: 'id' });
-KycInstance.belongsTo(userSchema_1.UserInstance, { foreignKey: 'id' });
+// UserInstance.hasMany(KycInstance, {foreignKey: 'id'});
+// KycInstance.belongsTo(UserInstance, {foreignKey: 'id'});
 //# sourceMappingURL=kycSchema.js.map
